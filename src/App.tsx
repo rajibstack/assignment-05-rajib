@@ -3,6 +3,7 @@ import './App.css'
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import { ExploreTechnologies } from './components/ExploreTechnologies';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       </main>
 
       <ExploreTechnologies />
+      <Footer></Footer>
 
     </div>
   );

@@ -34,7 +34,19 @@ const Navbar: React.FC = () => {
             </button>
 
             <div className="flex items-center cursor-pointer absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
-              <img src={brandLogo} alt="Logo" className="h-10 w-auto object-contain" />
+              
+
+              <div className="flex items-center gap-2.5 cursor-pointer">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-pink-500 via-purple-500 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md">
+                DS
+              </div>
+              <span className="text-xl font-bold tracking-tight">
+                <span className="text-black">Dev</span>
+                <span className="text-pink-600">Stack</span>
+              </span>
+            </div>
+
+
             </div>
 
             <div className="md:hidden w-7"></div>
@@ -57,7 +69,7 @@ const Navbar: React.FC = () => {
             ))}
           </div>
 
-          {/* Right: Sign In & Sign Up Buttons */}
+
           <div className="flex items-center gap-3">
             <button className="hidden sm:block text-sm font-medium text-gray-700 hover:text-black transition-colors whitespace-nowrap">
               Sign In
@@ -69,7 +81,7 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+
       {isOpen && (
         <div className="md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3 w-full">
           {navLinks.map((link, index) => (
