@@ -2,6 +2,7 @@
 import './App.css'
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
+import { ExploreTechnologies } from './components/ExploreTechnologies';
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
       <main>
         <Hero></Hero>
       </main>
+
+      <ExploreTechnologies />
 
     </div>
   );
