@@ -36,13 +36,14 @@ const Navbar: React.FC = () => {
               
 
               <div className="flex items-center gap-2.5 cursor-pointer">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-r from-[#EC4899] to-[#7C3AED] flex items-center justify-center text-white font-bold text-base shadow-sm">DS
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-r from-[#EC4899] to-[#7C3AED] flex items-center justify-center text-white font-jakarta font-black text-sm shadow-sm">DS
+                </div>
+
+                <span className="font-jakarta text-lg font-bold tracking-tight">
+                  <span className="text-[#0F172A]">Dev</span>
+                  <span className="text-[#DB2777]"> Stack</span>
+                </span>
               </div>
-              <span className="text-xl font-bold tracking-tight">
-                <span className="text-black">Dev</span>
-                <span className="text-pink-600"> Stack</span>
-              </span>
-            </div>
 
 
             </div>
@@ -58,8 +59,8 @@ const Navbar: React.FC = () => {
                 href={link.href}
                 className={`text-sm font-medium transition-colors ${
                   link.name === 'Home'
-                    ? 'text-pink-600 font-semibold'
-                    : 'text-gray-600 hover:text-pink-600'
+                    ? 'text-[#DB2777] font-semibold'
+                    : 'text-[#475569] hover:text-[#DB2777]'
                 }`}
               >
                 {link.name}
@@ -69,10 +70,10 @@ const Navbar: React.FC = () => {
 
 
           <div className="flex items-center gap-3">
-            <button className="hidden sm:block text-sm font-medium text-gray-700 hover:text-black transition-colors whitespace-nowrap">
+            <button className="hidden sm:block text-sm font-medium text-[#334155] hover:text-[#DB2777] transition-colors whitespace-nowrap">
               Sign In
             </button>
-            <button className="bg-pink-600 hover:bg-pink-700 text-white text-sm font-medium px-4 sm:px-5 py-2.5 rounded-full shadow-sm transition-all whitespace-nowrap">
+            <button className="bg-[#D91B7E] hover:bg-[#0F172A] text-white text-sm font-medium px-4 sm:px-5 py-2.5 rounded-full shadow-sm transition-all whitespace-nowrap">
               Sign Up
             </button>
           </div>

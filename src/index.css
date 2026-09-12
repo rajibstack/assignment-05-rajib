@@ -34,6 +34,15 @@
   }
 }
 
+@theme {
+  --font-inter: 'Inter', sans-serif;
+  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+  --color-brand-pink: #EC4899;
+  --color-brand-gray: #4B5563;
+  --color-brand-orange: #F97316;
+}
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;

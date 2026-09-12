@@ -11,10 +11,10 @@ export const Footer: React.FC = () => {
 
           <div className="lg:col-span-2 flex flex-col items-center lg:items-start">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-[#EC4899] to-[#7C3AED] flex items-center justify-center text-white font-bold text-sm shadow-sm">DS
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-[#EC4899] to-[#7C3AED] flex items-center justify-center text-white font-jakarta font-black text-sm shadow-sm">DS
             </div>
-              <span className="font-inter font-bold text-xl tracking-tight text-gray-900">
-                Dev<span className="text-[#D81B7E]"> Stack</span>
+              <span className="font-jakarta font-bold text-lg tracking-tight text-[#0F172A]">Dev
+                <span className="text-[#DB2777]"> Stack</span>
               </span>
             </div>
 
