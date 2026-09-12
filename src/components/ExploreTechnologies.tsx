@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import technologiesData from '../data/technologies.json';
+import { toast } from 'react-toastify';
 
 interface Technology {
   id: string;
@@ -14,25 +15,48 @@ interface Technology {
 
 export const ExploreTechnologies: React.FC = () => {
   const [stack, setStack] = useState<Technology[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [technologies, setTechnologies] = useState<Technology[]>([]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTechnologies(technologiesData);
+      setLoading(false);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleAddToStack = (tech: Technology) => {
     if (stack.some((item) => item.id === tech.id)) {
-      alert("This technology is already in your stack!");
+      toast.warn(`${tech.name} is already in your stack!`);
       return;
     }
     setStack([...stack, tech]);
+    toast.success(`${tech.name} added to your stack!`);
   };
 
-  const handleRemoveFromStack = (id: string) => {
+  const handleRemoveFromStack = (id: string, name: string) => {
     setStack(stack.filter((item) => item.id !== id));
+    toast.info(`${name} removed from stack.`);
   };
 
   const handleRemoveAll = () => {
     setStack([]);
+    toast.error("All technologies removed from stack!");
   };
 
+  if (loading) {
+    return (
+      <div className="w-full min-h-[400px] flex flex-col items-center justify-center py-20">
+        <div className="w-12 h-12 border-4 border-pink-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p className="text-gray-600 font-medium">Loading technologies...</p>
+      </div>
+    );
+  }
+
   return (
-    <section className="w-full max-w-[1280px] mx-auto px-4 py-8 lg:py-12">
+    <section id="technologies" className="w-full max-w-[1280px] mx-auto px-4 py-8 lg:py-12">
         <div className="mb-8 lg:mb-10 text-center lg:text-left">
             <h2 className="font-inter font-extrabold text-[30px] lg:text-[40px] text-gray-900 mb-2">Explore the <span className="bg-gradient-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent">Technologies</span>
             </h2>
@@ -45,7 +69,7 @@ export const ExploreTechnologies: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8 items-start">
         
         <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {technologiesData.map((tech: Technology) => {
+          {technologies.map((tech: Technology) => {
             const isAdded = stack.some((item) => item.id === tech.id);
 
             return (
@@ -59,7 +83,6 @@ export const ExploreTechnologies: React.FC = () => {
                       <img src={tech.icon} alt={tech.name} className="w-full h-full object-contain" />
                     </div>
                     
-
                     <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#FCE7F3] text-[#EC4899]">
                       {tech.badge}
                     </span>
@@ -91,7 +114,7 @@ export const ExploreTechnologies: React.FC = () => {
                   ) : (
                     <button
                       onClick={() => handleAddToStack(tech)}
-                      className="w-full py-2.5 rounded-xl font-semibold text-sm transition-all shadow-sm bg-gray-900 hover:bg-gray-800 text-white"
+                      className="w-full py-2.5 rounded-xl font-semibold text-sm transition-all shadow-sm bg-gray-900 hover:bg-gray-800 text-white cursor-pointer"
                     >
                       Add to Stack
                     </button>
@@ -102,7 +125,7 @@ export const ExploreTechnologies: React.FC = () => {
           })}
         </div>
 
-        <div className="lg:col-span-1 bg-white rounded-2xl border border-gray-100 shadow-sm p-5 lg:p-6 lg:sticky lg:top-6 text-left">
+        <div className="lg:col-span-1 bg-white rounded-2xl border border-gray-100 shadow-sm p-5 lg:p-6 lg:sticky lg:top-24 text-left">
           <div className="mb-4 text-left">
             <h3 className="font-inter font-bold text-lg text-gray-900">Your Stack</h3>
             <p className="font-jakarta text-xs text-gray-500 mt-0.5">
@@ -117,7 +140,7 @@ export const ExploreTechnologies: React.FC = () => {
               <p className="font-jakarta text-sm text-gray-400">Your stack is empty.</p>
             </div>
           ) : (
-            <div className="space-y-3 mb-6 max-h-[350px] overflow-y-auto pr-1">
+            <div className="space-y-3 mb-6">
               {stack.map((item) => (
                 <div 
                   key={item.id} 
@@ -133,8 +156,8 @@ export const ExploreTechnologies: React.FC = () => {
                     </div>
                   </div>
                   <button 
-                    onClick={() => handleRemoveFromStack(item.id)}
-                    className="w-7 h-7 flex items-center justify-center rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors"
+                    onClick={() => handleRemoveFromStack(item.id, item.name)}
+                    className="w-7 h-7 flex items-center justify-center rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors cursor-pointer"
                     title="Remove item"
                   >
                     ✕
@@ -147,7 +170,7 @@ export const ExploreTechnologies: React.FC = () => {
           {stack.length > 0 && (
             <button
               onClick={handleRemoveAll}
-              className="w-full py-2.5 rounded-xl font-semibold text-sm text-red-600 bg-red-50 hover:bg-red-100 transition-colors border border-red-100/60"
+              className="w-full py-2.5 rounded-xl font-semibold text-sm text-red-600 bg-red-50 hover:bg-red-100 transition-colors border border-red-100/60 cursor-pointer"
             >
               Remove All
             </button>
