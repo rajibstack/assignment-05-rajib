@@ -3,11 +3,11 @@ import heroIllustration from '../assets/banner-stack.png';
 
 const Hero: React.FC = () => {
   return (
-    <section className="w-full max-w-[1216px] mx-auto px-4 py-16">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
+    <section className="w-full max-w-[1216px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      {/* lg স্ক্রিনে গ্রিডটিকে 12 কলামে ভাগ করে প্রথমটিকে 7 এবং দ্বিতীয়টিকে 5 দেওয়া হয়েছে */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-center lg:text-left">
     
-
-        <div className="flex flex-col items-center lg:items-start justify-start">
+        <div className="lg:col-span-7 flex flex-col items-center lg:items-start justify-start">
           <h1 className="font-inter font-extrabold text-[42px] sm:text-[48px] lg:text-[60px] leading-[1.1] text-[#0F172A] mb-6">
             Build Your Ideal <br />
             <span className="bg-gradient-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent">
@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex justify-center lg:justify-end">
+        <div className="lg:col-span-5 flex justify-center lg:justify-end">
           <img 
             src={heroIllustration}
             alt="Development Stack Illustration" 

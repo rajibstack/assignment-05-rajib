@@ -56,7 +56,7 @@ export const ExploreTechnologies: React.FC = () => {
   }
 
   return (
-    <section id="technologies" className="w-full max-w-[1280px] mx-auto px-4 py-8 lg:py-12">
+    <section id="technologies" className="w-full py-8 lg:py-12 max-w-[1216px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 lg:mb-10 text-center lg:text-left">
             <h2 className="font-inter font-extrabold text-[30px] lg:text-[40px] text-gray-900 mb-2">Explore the <span className="bg-gradient-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent">Technologies</span>
             </h2>
@@ -83,16 +83,16 @@ export const ExploreTechnologies: React.FC = () => {
                       <img src={tech.icon} alt={tech.name} className="w-full h-full object-contain" />
                     </div>
                     
-                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#FCE7F3] text-[#EC4899]">
+                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#FCE7F3] text-[#DB2777]">
                       {tech.badge}
                     </span>
                   </div>
 
                   <div className="text-left mb-6">
-                    <h3 className="font-inter font-bold text-lg lg:text-xl text-gray-900 mb-2">
+                    <h3 className="font-jakarta font-bold text-lg lg:text-xl text-[#0F172A] mb-2">
                       {tech.name}
                     </h3>
-                    <p className="font-jakarta text-gray-500 text-xs lg:text-sm line-clamp-2">
+                    <p className="font-jakarta text-[#64748B] text-xs lg:text-sm line-clamp-2">
                       {tech.description}
                     </p>
                   </div>
@@ -100,21 +100,21 @@ export const ExploreTechnologies: React.FC = () => {
 
                 <div>
                   <div className="flex items-center justify-between text-xs text-gray-600 mb-5 bg-gray-50/70 py-2 px-3 rounded-lg border border-gray-100">
-                    <span className="font-medium text-gray-700">{tech.category}</span>
-                    <span className="text-gray-500">{tech.difficulty}</span>
-                    <span className="flex items-center gap-1 font-semibold text-gray-800">
+              <span className="font-jakarta text-[#475569] text-[11px] font-medium">{tech.category}</span>
+                    <span className="font-jakarta text-[#64748B] text-[11px]">{tech.difficulty}</span>
+                    <span className="flex items-center gap-1 font-semibold text-[#334155]">
                       <span className="text-amber-400">★</span> {tech.rating}
                     </span>
                   </div>
 
                   {isAdded ? (
-                    <div className="w-full py-2.5 rounded-xl bg-[#FCE7F3] text-[#EC4899] font-semibold text-sm flex items-center justify-center gap-2 shadow-sm">
+                    <div className="w-full py-2.5 rounded-xl bg-[#FCE7F3] text-[#EC4899] font-semibold text-xs flex items-center justify-center gap-2 shadow-sm">
                       <span>✓ Added to Stack</span>
                     </div>
                   ) : (
                     <button
                       onClick={() => handleAddToStack(tech)}
-                      className="w-full py-2.5 rounded-xl font-semibold text-sm transition-all shadow-sm bg-gray-900 hover:bg-gray-800 text-white cursor-pointer"
+                      className="w-full py-2.5 rounded-xl font-semibold text-xs transition-all shadow-sm bg-[#0A0F1D] hover:bg-gray-800 text-white cursor-pointer"
                     >
                       Add to Stack
                     </button>
@@ -170,7 +170,7 @@ export const ExploreTechnologies: React.FC = () => {
           {stack.length > 0 && (
             <button
               onClick={handleRemoveAll}
-              className="w-full py-2.5 rounded-xl font-semibold text-sm text-red-600 bg-red-50 hover:bg-red-100 transition-colors border border-red-100/60 cursor-pointer"
+              className="w-full py-2.5 rounded-xl font-semibold text-xs text-red-600 bg-red-50 hover:bg-red-100 transition-colors border border-red-100/60 cursor-pointer"
             >
               Remove All
             </button>
