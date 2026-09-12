@@ -44,7 +44,6 @@ export const ExploreTechnologies: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8 items-start">
         
-
         <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {technologiesData.map((tech: Technology) => {
             const isAdded = stack.some((item) => item.id === tech.id);
@@ -60,11 +59,11 @@ export const ExploreTechnologies: React.FC = () => {
                       <img src={tech.icon} alt={tech.name} className="w-full h-full object-contain" />
                     </div>
                     
-                    <span className="text-xs font-medium px-3 py-1 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-100">
+
+                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#FCE7F3] text-[#EC4899]">
                       {tech.badge}
                     </span>
                   </div>
-
 
                   <div className="text-left mb-6">
                     <h3 className="font-inter font-bold text-lg lg:text-xl text-gray-900 mb-2">
@@ -85,23 +84,23 @@ export const ExploreTechnologies: React.FC = () => {
                     </span>
                   </div>
 
-                  <button
-                    onClick={() => handleAddToStack(tech)}
-                    disabled={isAdded}
-                    className={`w-full py-2.5 rounded-xl font-semibold text-sm transition-all shadow-sm ${
-                      isAdded
-                        ? "bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200"
-                        : "bg-gray-900 hover:bg-gray-800 text-white"
-                    }`}
-                  >
-                    {isAdded ? "✓ Added to Stack" : "Add to Stack"}
-                  </button>
+                  {isAdded ? (
+                    <div className="w-full py-2.5 rounded-xl bg-[#FCE7F3] text-[#EC4899] font-semibold text-sm flex items-center justify-center gap-2 shadow-sm">
+                      <span>✓ Added to Stack</span>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => handleAddToStack(tech)}
+                      className="w-full py-2.5 rounded-xl font-semibold text-sm transition-all shadow-sm bg-gray-900 hover:bg-gray-800 text-white"
+                    >
+                      Add to Stack
+                    </button>
+                  )}
                 </div>
               </div>
             );
           })}
         </div>
-
 
         <div className="lg:col-span-1 bg-white rounded-2xl border border-gray-100 shadow-sm p-5 lg:p-6 lg:sticky lg:top-6 text-left">
           <div className="mb-4 text-left">
