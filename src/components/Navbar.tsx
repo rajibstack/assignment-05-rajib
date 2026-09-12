@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import brandLogo from '../assets/logo-text.png';
 
 interface NavLink {
   name: string;

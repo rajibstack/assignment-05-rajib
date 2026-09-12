@@ -33,14 +33,14 @@ export const ExploreTechnologies: React.FC = () => {
 
   return (
     <section className="w-full max-w-[1280px] mx-auto px-4 py-8 lg:py-12">
-      <div className="mb-8 lg:mb-10 text-left">
-        <h2 className="font-inter font-extrabold text-[30px] lg:text-[40px] text-gray-900 mb-2">
-          Explore the <span className="bg-gradient-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent">Technologies</span>
-        </h2>
-        <p className="font-jakarta text-gray-600 text-sm lg:text-base">
-          Pick one technology per category to build your ideal stack.
-        </p>
-      </div>
+        <div className="mb-8 lg:mb-10 text-center lg:text-left">
+            <h2 className="font-inter font-extrabold text-[30px] lg:text-[40px] text-gray-900 mb-2">Explore the <span className="bg-gradient-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent">Technologies</span>
+            </h2>
+            
+            <p className="font-jakarta text-gray-600 text-sm lg:text-base">
+            Pick one technology per category to build your ideal stack.
+            </p>
+        </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8 items-start">
         
