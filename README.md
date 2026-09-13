@@ -1,33 +1,36 @@
-# React + TypeScript + Vite
+DevStack
+A responsive portfolio web application designed for developers to explore, compare, and build their ideal technology stack with smooth UI interactions and real-time state management.
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+🛠️ Technologies I Used
+  * React & TypeScript
+  * Vite for install React in my local computer
+  * Tailwind CSS (v4) for inline style
+  * React Toastify - Showing activity for 'Add to Stack' and Remove
+  * Lucide Icons for hamburger menu icon
 
-Currently, two official plugins are available:
+✨ Key Features
+Interactive Technology: Browse frontend, backend, database, and tooling options dynamically fetched with status loading spinners.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Dynamic Stack Management: Add technologies to your custom stack, showing notifications.
 
-## React Compiler
+Sticky Sidebar & Responsive Layout: Clean, aligned navigation and responsive multi-column layouts optimized for both desktop and mobile views.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+💡 React Q&A
+What is JSX, and why is it used in React?
+JSX is a special syntax that lets you write HTML code directly inside JavaScript files. It is used because it makes writing and reading UI components much easier and more visual.
 
-## Expanding the Oxlint configuration
+What is the difference between props and state?
+Props are data passed down from a parent component to a child component and cannot be changed by the child. State is data managed inside a component that can change when the user interacts with the app.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+What does the useState hook do, and where did you use it in this project?
+The useState hook lets components remember and update data. In this project, it was used to keep track of the technologies added to your stack, handle loading states, and open or close the mobile menu.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+What does the useEffect hook do, and why did you need it to load the JSON data?
+useEffect lets you run code when a component loads on the screen. It was needed to fetch or load the local JSON technology data when the component first appears.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
-# assignment-05-rajib
+Why does every item in a .map() list need a unique key prop?
+Unique keys help React track which items change, are added, or are removed. This helps the app run faster and prevents rendering bugs.
+
+What is conditional rendering? Show one place you used it (example: the empty stack message).
+Conditional rendering means showing different things on the screen based on a condition (like showing a message when the stack is empty).
+Example: {stack.length === 0 ? <p>Your stack is empty.</p> : <StackList />}

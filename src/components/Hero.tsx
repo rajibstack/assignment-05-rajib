@@ -4,7 +4,6 @@ import heroIllustration from '../assets/banner-stack.png';
 const Hero: React.FC = () => {
   return (
     <section className="w-full max-w-[1216px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
-      {/* lg স্ক্রিনে গ্রিডটিকে 12 কলামে ভাগ করে প্রথমটিকে 7 এবং দ্বিতীয়টিকে 5 দেওয়া হয়েছে */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-center lg:text-left">
     
         <div className="lg:col-span-7 flex flex-col items-center lg:items-start justify-start">
