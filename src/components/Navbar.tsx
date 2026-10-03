@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-[1216px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* বাম পাশে হ্যামবার্গার মেনু (মোবাইল ও ট্যাবের জন্য) */}
+
           <div className="flex items-center md:hidden z-10">
             <button 
               onClick={() => setIsOpen(!isOpen)} 
@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
             </button>
           </div>
 
-          {/* মাঝখানে লোগো (মোবাইলে সেন্টারে থাকবে, ডেস্কটপে বামে চলে যাবে) */}
+
           <div className="flex items-center cursor-pointer absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-r from-[#EC4899] to-[#7C3AED] flex items-center justify-center text-white font-jakarta font-black text-sm shadow-sm">
@@ -45,7 +45,6 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* ডেস্কটপ মেনু লিংকগুলো */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link, index) => (
               <a
@@ -62,7 +61,6 @@ const Navbar: React.FC = () => {
             ))}
           </div>
 
-          {/* ডানপাশে Sign In এবং Sign Up বাটন (সব ডিভাইসে দৃশ্যমান) */}
           <div className="flex items-center gap-1.5 sm:gap-3">
             <button className="text-xs sm:text-sm font-medium text-[#334155] hover:text-[#DB2777] transition-colors whitespace-nowrap px-1 sm:px-2">
               Sign In
@@ -75,7 +73,6 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* মোবাইল ড্রপডাউন মেনু */}
       {isOpen && (
         <div className="md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3 w-full shadow-lg">
           {navLinks.map((link, index) => (
